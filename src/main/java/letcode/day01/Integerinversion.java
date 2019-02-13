@@ -87,6 +87,7 @@ public class Integerinversion {
      * @param x 给定的值
      * @return 返回反转的值
      */
+    @SuppressWarnings("all")
     private int reverse1(int x) {
         int rev = 0;
         while (x != 0) {
