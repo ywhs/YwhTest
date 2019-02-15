@@ -29,12 +29,17 @@ public class Easy7HeBingLiangGeYouXuLianBiaoTest {
 
     @Test
     public void main(){
-        for(int i = 0; i <= 2; i++){
-            ListNode l1 = new ListNode(1 + i * 2 + 1);
-            ListNode l2 = new ListNode(2 + i);
+            ListNode l1 = new ListNode(1);
+            ListNode l2 = new ListNode(1);
+            l1.next = l1;
+            l2.next = l2;
+            l1.next.val = 2;
+            l2.next.val = 3;
+            l1.next.next = l1;
+            l2.next.next = l2;
+            l1.next.next.val = 4;
+            l2.next.next.val = 4;
             System.out.println(mergeTwoLists(l1, l2).val);
-            System.out.println(mergeTwoLists(l1, l2).next.val);
-        }
     }
 
 
@@ -55,13 +60,14 @@ public class Easy7HeBingLiangGeYouXuLianBiaoTest {
                 item.next = l2;
                 l2 = l2.next;
             }
+            item = item.next;
         }
         if(l1 == null){
             item.next = l2;
         }else{
             item.next = l1;
         }
-        return item;
+        return dummyHead;
     }
 
 
