@@ -1,17 +1,17 @@
-package letcode.day01;
+package letcode.easy1_20;
 
 import org.junit.Test;
 
 /**
  * CreateTime: 2019-02-12 15:39
- * ClassName: Integerinversion
- * Package: letcode.day01
+ * ClassName: Easy2IntegerInVersionTest
+ * Package: letcode.easy1_20
  * Describe:
  * 整数反转
  *
  * @author YWH
  */
-public class Integerinversion {
+public class Easy2IntegerInVersionTest {
 
     /**
      * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。

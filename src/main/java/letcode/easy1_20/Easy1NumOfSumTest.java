@@ -1,4 +1,4 @@
-package letcode.day01;
+package letcode.easy1_20;
 
 import org.junit.Test;
 
@@ -8,14 +8,14 @@ import java.util.Map;
 
 /**
  * CreateTime: 2019-02-12 13:57
- * ClassName: Numofsum
- * Package: letcode.day01
+ * ClassName: Easy1NumOfSumTest
+ * Package: letcode.easy1_20
  * Describe:
  * 两数之和，
  *
  * @author YWH
  */
-public class Numofsum {
+public class Easy1NumOfSumTest {
 
     /**
      *
