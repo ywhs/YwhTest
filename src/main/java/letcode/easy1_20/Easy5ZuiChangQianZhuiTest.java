@@ -54,7 +54,7 @@ public class Easy5ZuiChangQianZhuiTest {
         // 首先默认取一个字符串作为公共前缀字符串
         String prefix = strs[0];
         for (int i = 1; i < strs.length; i++) {
-            // 不等于0代表prefix在某个字符串中不存在,如果存在必然存在第一位，索引值为0，进行相应的对比，直到找到公共的前缀字符
+            // 不等于0代表prefix在某个字符串中不存在,前缀如果存在  必然存在第一位，索引值为0，进行相应的对比，直到找到公共的前缀字符
             while (strs[i].indexOf(prefix) != 0) {
                 // 前缀减去最后一位
                 prefix = prefix.substring(0, prefix.length() -1);

@@ -14,6 +14,12 @@ import thinkinjava.part5.Exercise15;
  */
 public class Dinner {
 
+    private String s;
+
+    void Dinner(){
+        System.out.println("This is a Dinner");
+        this.s = "Dinner";
+    }
 
     // java访问权限修饰词，使用其他包内的类，默认不写修饰词的方法，能否访问,
     // 在不写任何修饰符的前提下，除非在同一个包中，否则是访问不了任何方法的
@@ -21,5 +27,11 @@ public class Dinner {
     public static void main(String[] args) {
         Exercise15 easy = new Exercise15();
     }
+
+
+//    @Override
+//    public String toString(){
+//        return "ceshi!!!";
+//    }
 
 }
