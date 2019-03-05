@@ -70,6 +70,11 @@ public class Ywh01EeChaShuTest {
 
         System.out.print("递归后序遍历：");
         backForeach(this.node);
+
+        System.out.println("");
+
+        System.out.print("递归后序遍历：");
+        backForeach1(this.node);
     }
 
 
@@ -130,16 +135,22 @@ public class Ywh01EeChaShuTest {
     /**
      * 二叉树的中序遍历（非递归遍历） 左根右
      *
+     * 思路:这个主要是判断在没有左孩子节点时就是输出的时候了，在第二个while退出的时候就是左孩子节点为空了
+     * 把栈顶数据弹出，输出节点数据，并把右节点拿出来
+     *
      * @param node 二叉树链表
      */
     private void middleForeach1(TreeNode node){
         Stack<TreeNode> stack = new Stack<>();
         TreeNode root = node;
+        // 只要该节点不为空和栈不为空都应该进入循环
         while (root != null || !stack.isEmpty()){
+            // 当节点不为空的时候，假如栈，并继续寻找左节点
             while(root != null){
                 stack.push(root);
                 root = root.left;
             }
+            // 当上面的while退出的时候，代表左节点为空，输出栈顶数据，并把右节点拿出来
             if(!stack.isEmpty()){
                 root = stack.pop();
                 System.out.print(root.val);
@@ -162,4 +173,29 @@ public class Ywh01EeChaShuTest {
         }
     }
 
+
+    /**
+     * 二叉树的后序遍历（非递归遍历） 左右根
+     *
+     * @param node 二叉树链表
+     */
+    private void backForeach1(TreeNode node){
+        Stack<Object> stack = new Stack<>();
+        // 1.把整个对象都放入栈内
+        stack.push(node);
+        // 2.while判断栈内是否有数据
+        while (!stack.isEmpty()){
+            // 3.弹出栈顶数据
+            Object t = stack.pop();
+            // 4.判断t是否为TreeNode类型数据，如果不是则输出
+            if(t instanceof TreeNode){
+                // 5.如果是的话，把当前节点的数据放入栈内，并且判断是否有左右节点
+                stack.push(((TreeNode) t).val);
+                if(((TreeNode) t).right != null){stack.push(((TreeNode) t).right);}
+                if(((TreeNode) t).left != null){stack.push(((TreeNode) t).left);}
+            }else{
+                System.out.print(t);
+            }
+        }
+    }
 }
