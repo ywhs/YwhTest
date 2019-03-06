@@ -44,13 +44,28 @@ public class Easy11SouSuoChaRuWeiZhiTest {
 
     @Test
     public void main(){
-
+        int[] nums = new int[]{1,3,5,6};
+        int target = 3;
+        System.out.println(searchInsert(nums,target));
     }
 
-    public int searchInsert(int[] nums, int target) {
-        return -1;
+    /**
+     * 自解
+     * 思路： 前提 数组是有序数组
+     *  遍历当前数组，查找与目标值相同的数值，如果找到一个数字比目标值大或者等于就返回当前i
+     *  因为如果找到的数字比目标值大，说明后面不可能有目标值了，把目标值插入当前位置返回i即可
+     * @param nums 有序数组
+     * @param target 目标值
+     * @return 返回目标值索引位置，或者插入位置
+     */
+    private int searchInsert(int[] nums, int target) {
+
+        if(nums.length == 0 || nums[0] >= target){return 0;}
+        int i = 1;
+        for(; i < nums.length; i++){
+            if(nums[i] >= target){return i;}
+        }
+        return i;
     }
-
-
 
 }
