@@ -8,7 +8,8 @@ public class ChuJiPaiXuTest {
     @Test
     public void main(){
         Integer[] a = new Integer[]{4,7,3,9,1};
-        xuanZePaiXu(a);
+//        xuanZePaiXu(a);
+        chaRuPaiXu(a);
         MoBanUtils.show(a);
     }
 
@@ -25,7 +26,22 @@ public class ChuJiPaiXuTest {
                 if(MoBanUtils.less(a[j],a[min])){
                     min = j;
                 }
+                // 交换
                 MoBanUtils.exch(a,i, min);
+            }
+        }
+    }
+
+    /**
+     * 插入排序
+     * @param a
+     */
+    private void chaRuPaiXu(Comparable[] a){
+        int length = a.length;
+        for(int i = 1; i < length; i++){
+            // 默认左边排序都是有序的
+            for(int j = i; j > 0 && MoBanUtils.less(a[j],a[j-1]); j--){
+                MoBanUtils.exch(a,j,j-1);
             }
         }
     }
