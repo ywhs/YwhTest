@@ -58,7 +58,7 @@ madlid   机器学习的数据库
     public int height;  //截取后的高度
 
 
-##六：编译opencv
+## 六：编译opencv
 	0.下载Vs Studio 安装 2017
 	1.下载opencv https://www.opencv.org/releases.html  安装后会有source文件就是源码
 	2.下载opencv_contrib https://github.com/opencv/opencv_contrib/  解压
