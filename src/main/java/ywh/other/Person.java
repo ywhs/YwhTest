@@ -1,9 +1,5 @@
 package ywh.other;
 
-import com.sun.istack.internal.NotNull;
-
-import javax.annotation.CheckForNull;
-
 /**
  * CreateTime: 2019-03-19 8:59
  * ClassName: Person
