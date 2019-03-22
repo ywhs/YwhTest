@@ -39,10 +39,21 @@ public class Easy13ZuiDaZiXuHeTest {
      * @return 最大和
      */
     private int maxSubArray(int[] nums) {
-
-
-
-        return 1;
+        // 默认第一位为最大
+        int res = nums[0];
+        // 临时存储和
+        int sum = 0;
+        for(int num : nums){
+            // 对于一个有正数的数组来说，最大数肯定是正数的相加，而所有都是负数的话，肯定都是个单数，因为负数越相加越小
+            if(sum > 0){
+                sum += num;
+            }else{
+                sum = num;
+            }
+            // 比较哪个更大，把最大给最终返回的res
+            res = res > sum ? res : sum;
+        }
+        return res;
     }
 
 }

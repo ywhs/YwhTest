@@ -85,7 +85,7 @@ public class Easy12BaoShuTest {
             }
             s = String.valueOf(newStr);
         }
-        return String.valueOf(s);
+        return s;
     }
 
 
