@@ -14,7 +14,7 @@ public class FatherClass {
     private String str;
 
     public String str1 = "父类的成员变量";
-    public static String str2 = "父类的成员变量";
+    public static String str2 = "父类的静态成员变量";
 
     public FatherClass(){
         System.out.println("无参构造器！！！");

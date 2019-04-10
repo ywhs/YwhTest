@@ -19,6 +19,7 @@ public class ListTest {
 
     /**
      * 在Map/Set中   自定义对象作为Key值时必须重写hashcode和equals方法才能保证数据的不重复
+     * 测试 是否可以存储重复的数据
      */
     @Test
     public void setListTest(){
@@ -34,6 +35,9 @@ public class ListTest {
         }
     }
 
+    /**
+     * 在一个字符串中查找每个字符重复的次数
+     */
     @Test
     public void test(){
         String a = "1185564686682";
@@ -53,6 +57,9 @@ public class ListTest {
         }
     }
 
+    /**
+     * 包装类型应该一直使用equals来比较值，基本类型可以使用==来比较值的大小
+     */
     @Test
     public void test1(){
         String s = "123";
@@ -65,7 +72,7 @@ public class ListTest {
 
         Person a = new Person("ywh",23);
         Person b = new Person("ywh",23);
-        if(s != s1){
+        if(!s.equals(s1)){
             System.out.println("字符串不相等");
         }
         if(!n1.equals(n2)){
@@ -79,5 +86,27 @@ public class ListTest {
         }
         System.out.println(s.compareTo(s1));
     }
+
+    /**
+     * 测试arrList和linkedList
+     */
+    @Test
+    public void test2(){
+        LinkedList<String> lianbiao = new LinkedList<>();
+        lianbiao.add("123123");
+        lianbiao.add("456");
+        lianbiao.add("789");
+        ArrayList<String> lianbiao1 = new ArrayList<>();
+        lianbiao1.add("123");
+        lianbiao1.add("456");
+        lianbiao1.add("789");
+        lianbiao1.remove("789");
+        System.out.println("peek => " + lianbiao.peek());
+        System.out.println("lianbiao1 => " + lianbiao1.size());
+    }
+
+
+
+
 
 }

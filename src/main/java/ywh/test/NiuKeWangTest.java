@@ -23,8 +23,8 @@ public class NiuKeWangTest extends FatherClass {
 
 
     public NiuKeWangTest(){
-        super("123","123");
-        super.protected1();
+//        super("123","123");
+//        super.protected1();
     }
 
 
@@ -43,36 +43,58 @@ public class NiuKeWangTest extends FatherClass {
         System.out.println("子类中独有的方法" + s);
     }
 
+
+    /**
+     * 关于继承的测试
+     */
     @Test
     public void test2(){
         String s = "123";
-        System.out.println("s => " + s);
-        FatherClass fatherClass1 = new NiuKeWangTest();
-        FatherClass fatherClass2 = new FatherClass();
-        // 如果是父类对象调用被覆盖的方法，会找自己的方法，如果是子类对象也会找到自己方法调用
-        fatherClass1.protected1();
-        // 当子类中没有这个方法时，才会去找父类中的方法,父类并不具备子类中的方法
-        fatherClass1.duYou();
-        fatherClass2.str1 = "123";
-        // 通过super关键字只能调用不是静态的成员变量， 实例化的引用也不能调用静态的成变量
-        System.out.println("" + super.str1);
-        // 静态的成员变量，只能通过类名直接访问
-        System.out.println("" + FatherClass.str2);
-//        System.out.println("" + super.str2);
-        LinkedList<String> lianbiao = new LinkedList<>();
-        lianbiao.add("123123");
-        lianbiao.add("456");
-        lianbiao.add("789");
-        ArrayList<String> lianbiao1 = new ArrayList<>();
-        lianbiao1.add("123");
-        lianbiao1.add("456");
-        lianbiao1.add("789");
-        String second = lianbiao.get(1);
-        String second1 = lianbiao1.get(1);
-        int size = 3;
-        System.out.println("size => " + (size >> 1));
-        System.out.println("peek => " + lianbiao.peek());
 
+        // 关于继承中相同方法和独有方法的调用
+
+        // 第一种 父类引用，子类对象
+        FatherClass fatherClass = new NiuKeWangTest();
+        // 如果一个方法被子类覆盖了，调用的就是子类覆盖的方法。
+        fatherClass.protected1();
+        // 调用的是父类的独有的方法
+        fatherClass.duYou();
+        // 虽然是子类对象，但是引用确实父类引用，这种情况，只有被覆盖的方法才会调用子类中的方法，其他不覆盖的依旧是父类的方法。
+//        fatherClass.duYou("123");
+
+        // 第二种，父类引用，父类对象
+        FatherClass fatherClass1 = new FatherClass();
+        // 引用和对象都是父类本身，那么就算是方法被覆盖了，也会调用的是自己的方法
+        fatherClass1.protected1();
+        // 调用的是自己本身有的方法
+        fatherClass1.duYou();
+        // 父类对象不能调用子类的方法
+//        fatherClass.duYou("123");
+
+
+        // 第三种，子类引用，子类对象
         NiuKeWangTest niuKeWangTest = new NiuKeWangTest();
+        // 会调用子类本身的方法
+        niuKeWangTest.protected1();
+        // 除了父类的私有方法，其他方法都可以调用
+        niuKeWangTest.duYou();
+        niuKeWangTest.duYou("123");
+
+
+
+
+//        // 通过super关键字只能调用不是静态的成员变量， 实例化的引用也不能调用静态的成变量
+//        System.out.println("" + super.str1);
+//        // 静态的成员变量，只能通过类名直接访问，不能通过super关键字来获取
+//        System.out.println("" + FatherClass.str2);
+
+    }
+
+    /**
+     * ^ 这个运算符是 与 运算。
+     */
+    @Test
+    public void test3(){
+        System.out.println(9 ^ 13);
     }
 }
